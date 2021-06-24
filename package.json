@@ -1,0 +1,34 @@
+{
+  "name": "api-tests-typescript",
+  "version": "1.0.0",
+  "description": "api tests with typescript",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "clean": "rimraf build/",
+    "test-dev": "npm run clean && npm run build && cd build/test/ && cross-env ENVIRONMENT='dev' mocha --file *.js --config ../../.mocharc.js --timeout 25000",
+    "test-prod": "npm run clean && npm run build && cd build/test/ && cross-env ENVIRONMENT='prod' mocha --file *.js --config ../../.mocharc.js --timeout 25000"
+  },
+  "keywords": [
+    "typescript",
+    "test",
+    "api"
+  ],
+  "author": "Rafael Bercam Medeiros",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/chai": "^4.2.18",
+    "@types/faker": "^5.5.6",
+    "@types/mocha": "^8.2.2",
+    "chai": "^4.3.4",
+    "chai-as-promised": "^7.1.1",
+    "chai-http": "^4.3.0",
+    "cross-env": "^7.0.3",
+    "dotenv": "^10.0.0",
+    "faker": "^5.5.3",
+    "mocha": "^9.0.1",
+    "mochawesome": "^6.2.2",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.3.4"
+  }
+}
