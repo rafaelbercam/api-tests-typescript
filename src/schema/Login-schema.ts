@@ -12,4 +12,5 @@ const loginFailSchema = Joi.object({
 const loginEmailRequiredSchema = Joi.object({
     email: Joi.string().required()
 })
+
 module.exports = { loginFailSchema, loginSchema, loginEmailRequiredSchema};

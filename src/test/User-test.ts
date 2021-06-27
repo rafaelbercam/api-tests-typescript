@@ -1,6 +1,8 @@
 import { expect } from "chai";
 import UserFactory from "../factory/User-factory";
 import { deleteUser, getUserById, getUsers, postUser, putUser } from "../services/Users-service";
+import Joi = require('joi');
+const schema = require('../schema/User-schema')
 
 let response: any;
 let _id: string;
@@ -14,12 +16,14 @@ describe('User test request', async ()=>{
         _id = response.body.usuarios[0]._id
         expect(response.statusCode).to.eq(200);
         expect(response.body.quantidade).greaterThanOrEqual(0);
+        Joi.assert(response.body, schema.getUsersSchema)
     })
 
     it('get users by Id', async () => {
         response = await getUserById(_id);
         expect(response.statusCode).to.eq(200);
         expect(_id).to.eq(response.body._id)
+        Joi.assert(response.body, schema.getUserByIdSchema)
     })
 
     it('post new user', async () => {
