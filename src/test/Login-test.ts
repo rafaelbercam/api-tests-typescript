@@ -6,7 +6,6 @@ import { postLogin } from "../services/Login-service";
 import { postUser } from "../services/Users-service";
 const schema = require('../schema/Login-schema')
 
-require ('dotenv').config({ path: '../../.env' })
 
 let response: any;
 let user: any;
