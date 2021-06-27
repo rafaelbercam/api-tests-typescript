@@ -22,19 +22,20 @@ describe('Login test request', async ()=>{
         response = await postLogin(user);
         expect(response.statusCode).to.eq(200);
         expect(response.body.message).to.eq('Login realizado com sucesso');  
-        Joi.assert(response.body, schema.loginSchema)
+        Joi.assert(response.body, schema.loginSchema);
     })
 
     it('Login test Fail - wrong credentials', async () => {
         response = await postLogin(loginFactory.loginFail);
         expect(response.statusCode).to.eq(401);
         expect(response.body.message).to.eq('Email e/ou senha inválidos');
-        Joi.assert(response.body, schema.loginFailSchema)
+        Joi.assert(response.body, schema.loginFailSchema);
     })
 
     it('Login test Fail - email required', async () => {
         response = await postLogin(loginFactory.loginEmailRequired);
         expect(response.statusCode).to.eq(400);
         expect(response.body.email).to.eq('email não pode ficar em branco');
+        Joi.assert(response.body, schema.loginEmailRequiredSchema);
     })
 })

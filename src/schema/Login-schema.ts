@@ -9,4 +9,7 @@ const loginFailSchema = Joi.object({
     message: Joi.string().required()
 })
 
-module.exports = { loginFailSchema, loginSchema};
+const loginEmailRequiredSchema = Joi.object({
+    email: Joi.string().required()
+})
+module.exports = { loginFailSchema, loginSchema, loginEmailRequiredSchema};
