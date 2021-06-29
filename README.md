@@ -109,3 +109,30 @@ Neste expelo, a função `createUser()` retorna um objeto que não utiliza uma c
     //...
 ```
 
+### __Schema__
+
+Para realizar os testes de contrato, usei a lib [Joi](https://joi.dev/api/), seu uso é muito simples e basicamente criamos uma estrutura para validar se o retorno de uma requisição segue exatamente os modelo criado pelo Joi.
+
+Exemplo da linguagem
+
+```ts
+import Joi = require('joi');
+
+const loginSchema = Joi.object({
+    message: Joi.string().required(),
+    authorization: [Joi.string(),Joi.number()]
+})
+
+module.exports = { loginSchema };
+```
+
+Dentro dos testes basta importar o Joi e criar uma validação usando o `Joi.assert()` 
+
+```ts
+it('Login Success', async ()=>{       
+    response = await postLogin(user);
+    expect(response.statusCode).to.eq(200);
+    expect(response.body.message).to.eq('Login realizado com sucesso');  
+    Joi.assert(response.body, schema.loginSchema);
+})
+```
