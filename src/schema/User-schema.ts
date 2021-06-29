@@ -21,4 +21,13 @@ const getUserByIdSchema = Joi.object().keys({
     _id: Joi.string().regex(/^[a-zA-Z0-9]/).required()
 })
 
-module.exports = { getUsersSchema, getUserByIdSchema };
+const createNewUserMessage = Joi.object().keys({
+  message: Joi.string().required(),
+  _id: Joi.string().regex(/^[a-zA-Z0-9]/).required()
+})
+
+const updateDeleteUserMessage = Joi.object().keys({
+  message: Joi.string().required()
+})
+
+module.exports = { getUsersSchema, getUserByIdSchema, createNewUserMessage, updateDeleteUserMessage};

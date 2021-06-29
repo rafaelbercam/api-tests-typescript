@@ -32,6 +32,7 @@ describe('User test request', async ()=>{
         expect(response.statusCode).to.eq(201);
         expect(response.body.message).to.eq('Cadastro realizado com sucesso')
         new_id = response.body._id
+        Joi.assert(response.body, schema.createNewUserMessage)
     })
 
     it('put user - new data', async () => {
@@ -45,12 +46,14 @@ describe('User test request', async ()=>{
         expect(getUpdateUser.body.nome).not.eq(newData.nome);
         expect(getUpdateUser.body.email).not.eq(newData.email);
         expect(getUpdateUser.body.password).not.eq(newData.password);
+        Joi.assert(response.body, schema.updateDeleteUserMessage)
     })
 
     it('delete user', async ()=>{
         response = await deleteUser(new_id);
         expect(response.statusCode).to.eq(200);
         expect(response.body.message).to.eq('Registro excluído com sucesso');
+        Joi.assert(response.body, schema.updateDeleteUserMessage)
     })
     
 })

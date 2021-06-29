@@ -9,9 +9,7 @@ import { postUser } from "../services/Users-service";
 
 let response: any;
 let user: any;
-let token: any;
-let product_id: string;
-let product: any;
+let token: string;
 
 describe('Cart test request', async ()=>{
 
@@ -31,8 +29,8 @@ describe('Cart test request', async ()=>{
         let product:any = ProductFactory.createNewProduct();
         let responseProd:any = await postProduct(product, token);
         let _id:string = responseProd.body._id;
-        let cart:any = CartFactory.createNewCart(_id,3);
-        response = await postCart(cart, token);
+        let cart: any = CartFactory.createNewCart(_id,3);
+        response = await postCart(cart, token); 
         expect(response.statusCode).to.eq(201);
         expect(response.body.message).to.eq('Cadastro realizado com sucesso');
       })
