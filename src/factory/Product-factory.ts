@@ -7,7 +7,7 @@ const ProductFactory = {
 
         let nome = faker.commerce.productName();
         let preco = parseFloat(faker.commerce.price());
-        let descricao = faker.commerce.productDescription();
+        let descricao = faker.commerce.productMaterial();
         let quantidade = parseInt(faker.datatype.number());
 
         return {

@@ -1,9 +1,13 @@
 import { expect } from "chai";
+import Joi = require("joi");
 import ProductFactory from "../factory/Product-factory";
 import UserFactory from "../factory/User-factory";
 import { returnToken } from "../services/Login-service";
 import { deleteProduct, getProductById, getProducts, postProduct, putProduct } from "../services/Product-service";
 import { postUser } from "../services/Users-service";
+
+const schema = require('../schema/Products-schema');
+
 
 let response: any;
 let user: any;
@@ -24,6 +28,7 @@ describe('Product test request', async ()=>{
       expect(response.statusCode).to.eq(200)
       expect(response.body).haveOwnProperty('produtos');
       expect(response.body.quantidade).greaterThanOrEqual(0);
+      Joi.assert(response.body, schema.getProductsSchema)
     })
 
     it('post new product', async () => {
@@ -32,26 +37,30 @@ describe('Product test request', async ()=>{
         expect(response.statusCode).to.eq(201)
         expect(response.body.message).to.eq('Cadastro realizado com sucesso');
         product_id = response.body._id;
+        Joi.assert(response.body, schema.sucessMessageSchema)
       })
 
       it('get product by Id', async () => {
         response = await getProductById(product_id);
         expect(response.statusCode).to.eq(200);
         expect(response.body.nome).to.eq(product.nome);
+        Joi.assert(response.body, schema.getProductByIdSchema)
       })
 
       it('update product', async () => {
-        let newProduct: any = ProductFactory.createNewProduct();
+        let newProduct: any = await ProductFactory.createNewProduct();
         response = await putProduct(product_id,newProduct, token);
         expect(response.statusCode).to.eq(200);
         expect(response.body.message).to.eq('Registro alterado com sucesso');
         newProduct = await getProductById(product_id);
         expect(newProduct.body.nome).not.eq(product.nome)
+        Joi.assert(response.body, schema.messageSchema)
       })
 
       it('delete product', async () => {
         response = await deleteProduct(product_id,token)
         expect(response.statusCode).to.eq(200);
         expect(response.body.message).to.eq('Registro excluído com sucesso');
+        Joi.assert(response.body, schema.messageSchema)
       })
 })
