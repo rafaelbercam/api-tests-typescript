@@ -66,8 +66,6 @@ describe('Cart test request', async ()=>{
         response = await postCart(cart, token);
         expect(response.statusCode).to.eq(400);
         expect(response.body.message).to.eq('Produto não encontrado');
-        console.log(response.body);
-        
         Joi.assert(response.body, schema.productNotFoundSchema)
       })
 
