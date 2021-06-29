@@ -129,6 +129,11 @@ module.exports = { loginSchema };
 Dentro dos testes basta importar o Joi e criar uma validação usando o `Joi.assert()` 
 
 ```ts
+const schema = require('../schema/Login-schema');
+
+//any code
+
+
 it('Login Success', async ()=>{       
     response = await postLogin(user);
     expect(response.statusCode).to.eq(200);

@@ -4,7 +4,7 @@ import loginFactory from "../factory/Login-factory";
 import UserFactory from "../factory/User-factory";
 import { postLogin } from "../services/Login-service";
 import { postUser } from "../services/Users-service";
-const schema = require('../schema/Login-schema')
+const schema = require('../schema/Login-schema');
 
 
 let response: any;
