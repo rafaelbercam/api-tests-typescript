@@ -48,7 +48,7 @@ describe('Product test request', async ()=>{
       })
 
       it('update product', async () => {
-        let newProduct: any = ProductFactory.createNewProduct();
+        let newProduct: any = await ProductFactory.createNewProduct();
         response = await putProduct(product_id,newProduct, token);
         expect(response.statusCode).to.eq(200);
         expect(response.body.message).to.eq('Registro alterado com sucesso');
