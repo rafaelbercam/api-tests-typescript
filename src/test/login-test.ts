@@ -1,10 +1,10 @@
 import Joi = require('joi');
 import { expect } from "chai";
-import loginFactory from "../factory/Login-factory";
-import UserFactory from "../factory/User-factory";
-import { postLogin } from "../services/Login-service";
-import { postUser } from "../services/Users-service";
-const schema = require('../schema/Login-schema');
+import loginFactory from "../factory/login-factory";
+import UserFactory from "../factory/user-factory";
+import { postLogin } from "../services/login-service";
+import { postUser } from "../services/users-service";
+const schema = require('../schema/login-schema');
 
 
 let response: any;

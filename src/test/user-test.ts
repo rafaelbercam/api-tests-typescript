@@ -1,8 +1,8 @@
 import { expect } from "chai";
-import UserFactory from "../factory/User-factory";
-import { deleteUser, getUserById, getUsers, postUser, putUser } from "../services/Users-service";
+import UserFactory from "../factory/user-factory";
+import { deleteUser, getUserById, getUsers, postUser, putUser } from "../services/users-service";
 import Joi = require('joi');
-const schema = require('../schema/User-schema')
+const schema = require('../schema/user-schema')
 
 let response: any;
 let _id: string;

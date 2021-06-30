@@ -1,12 +1,12 @@
 import { expect } from "chai";
 import Joi = require("joi");
-import ProductFactory from "../factory/Product-factory";
-import UserFactory from "../factory/User-factory";
-import { returnToken } from "../services/Login-service";
-import { deleteProduct, getProductById, getProducts, postProduct, putProduct } from "../services/Product-service";
-import { postUser } from "../services/Users-service";
+import ProductFactory from "../factory/product-factory";
+import UserFactory from "../factory/user-factory";
+import { returnToken } from "../services/login-service";
+import { deleteProduct, getProductById, getProducts, postProduct, putProduct } from "../services/product-service";
+import { postUser } from "../services/users-service";
 
-const schema = require('../schema/Products-schema');
+const schema = require('../schema/products-schema');
 
 
 let response: any;
