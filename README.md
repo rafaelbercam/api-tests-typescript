@@ -20,12 +20,21 @@ Link do Repo: https://github.com/ServeRest/ServeRest
 ```
 npm i
 ```
-2. Rodar os testes localhost
+2. Criar arquivo `.env` na raiz do projeto
+
+Criar o arquivo com as seguintes variáveis
+
+```text
+PROD=https://serverest.dev
+DEV=http://localhost:3000
+```
+
+3. Rodar os testes localhost
 ```
 npm run test-dev
 ````
 
-3. Para rodar os testes em Produção
+4. Para rodar os testes em Produção
 ```
 npm run test-prod
 ````
