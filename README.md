@@ -150,3 +150,9 @@ it('Login Success', async ()=>{
     Joi.assert(response.body, schema.loginSchema);
 })
 ```
+
+### Apresentação no YouTube 
+
+#### [Apresentação no Canal Café, Testes e Pão de Queijo](https://www.youtube.com/watch?v=akz8WbZ5Dz4)
+
+#### [Link dos Slides](https://docs.google.com/presentation/d/1u_LdkHvwRTdWfIPkjv53d1Xfn3uC296fRtmT7oQ8pmI/edit?usp=sharing)
