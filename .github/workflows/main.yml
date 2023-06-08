@@ -19,7 +19,9 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '14'
-
+      - name: Step 1 - Install operating system dependencies
+        run:  |
+          npm i -g rimraf
       - name: Step 3 - Run tests
         run: npm run test-prod
 
