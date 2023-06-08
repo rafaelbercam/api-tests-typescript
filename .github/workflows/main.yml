@@ -23,6 +23,8 @@ jobs:
         run:  |
           npm i -g rimraf
           npm install
+          pwd
+          ls
       - name: Step 3 - Run tests
         run: npm run test-prod
 

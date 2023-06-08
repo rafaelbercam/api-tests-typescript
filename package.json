@@ -7,7 +7,7 @@
     "build": "tsc",
     "clean": "rimraf build/",
     "test-dev": "npm run clean && npm run build && cd build/test/ && cross-env ENVIRONMENT='dev' mocha --file *.js --config ../../.mocharc.js --timeout 25000",
-    "test-prod": "npm run clean && npm run build && cd home/runner/work/api-tests-typescript/api-tests-typescript/build/test/ && cross-env ENVIRONMENT='prod' mocha --file *.js --config ../../.mocharc.js --timeout 25000"
+    "test-prod": "npm run clean && npm run build && cd build/test/ && cross-env ENVIRONMENT='prod' mocha --file *.js --config ../../.mocharc.js --timeout 25000"
   },
   "keywords": [
     "typescript",
