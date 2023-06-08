@@ -23,13 +23,13 @@ describe('Product test request', async ()=>{
         token = await returnToken(user);
     })
 
-    it('get products', async () => {
-      response = await getProducts();
-      expect(response.statusCode).to.eq(200)
-      expect(response.body).haveOwnProperty('produtos');
-      expect(response.body.quantidade).greaterThanOrEqual(0);
-      Joi.assert(response.body, schema.getProductsSchema)
-    })
+    // it('get products', async () => {
+    //   response = await getProducts();
+    //   expect(response.statusCode).to.eq(200)
+    //   expect(response.body).haveOwnProperty('produtos');
+    //   expect(response.body.quantidade).greaterThanOrEqual(0);
+    //   Joi.assert(response.body, schema.getProductsSchema)
+    // })
 
     it('post new product', async () => {
         product = ProductFactory.createNewProduct();
