@@ -11,6 +11,13 @@ export async function getCarts() {
     .set('Content-Type', 'application/json')
 }
 
+export async function getCartsByUserId(_id:String) {
+    return await chai
+    .request(conf.url)
+    .get(`/carrinhos/?_id=${_id}`)
+    .set('Content-Type', 'application/json')
+}
+
 export async function postCart(cart:any, token:string) {
     return await chai
     .request(conf.url)

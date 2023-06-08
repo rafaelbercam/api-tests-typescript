@@ -28,7 +28,7 @@
     "faker": "^5.5.3",
     "joi": "^17.4.0",
     "mocha": "^9.0.1",
-    "mochawesome": "^6.2.2",
+    "mochawesome": "^7.1.2",
     "rimraf": "^3.0.2",
     "typescript": "^4.3.4"
   }

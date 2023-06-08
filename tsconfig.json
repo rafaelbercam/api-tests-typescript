@@ -3,7 +3,7 @@
         "outDir": "./build",
         "allowJs": true,
         "module": "commonjs",
-        "target": "esnext",
+        "target": "ESNext",
         "moduleResolution": "node",
         "sourceMap": false,
         "declaration": false,
