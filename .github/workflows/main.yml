@@ -25,16 +25,14 @@ jobs:
           cache-dependency-path: package-lock.json
 
       - name: Install dependencies
-        run: |
-          npm ci
-          npm i -g rimraf
+        run: npm ci
 
       - name: Build
         run: npm run build
 
       - name: Test
         run: npm run test-prod
-        
+
       - name: Step 4 - Publishing Allure artifact to GitHub Actions
         uses: actions/upload-artifact@v2
         with:
