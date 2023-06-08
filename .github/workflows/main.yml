@@ -30,6 +30,9 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Show path
+        run: ls && pwd
+
       - name: Test
         run: npm run test-prod
 
