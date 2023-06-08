@@ -25,8 +25,9 @@ jobs:
           cache-dependency-path: package-lock.json
 
       - name: Install dependencies
-        run: npm ci
-        run: npm i -g rimraf
+        run: 
+          npm ci
+          npm i -g rimraf
 
       - name: Build
         run: npm run test-prod
