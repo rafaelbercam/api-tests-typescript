@@ -30,8 +30,11 @@ jobs:
           npm i -g rimraf
 
       - name: Build
-        run: npm run test-prod
+        run: npm run build
 
+      - name: Test
+        run: npm run test-prod
+        
       - name: Step 4 - Publishing Allure artifact to GitHub Actions
         uses: actions/upload-artifact@v2
         with:
