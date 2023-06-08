@@ -33,6 +33,9 @@ jobs:
       - name: Show path
         run: ls && pwd
 
+      - name: Show BUILD path
+        run: cd build && ls && cd test && ls && pwd
+
       - name: Test
         run: npm run test-prod
 
